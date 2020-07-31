@@ -22,7 +22,12 @@ If you `pip install` new libraries, please add it to the requirements.txt file b
 pip freeze > requirements.txt
 ```
 
-cheers  
+cheers 
+
+
+## to visualize the random walk 
+`python rw.py`
+ 
 
 
 ## random stuff
