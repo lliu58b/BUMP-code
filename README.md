@@ -33,3 +33,7 @@ cheers
 ## random stuff
 
 > pyqtgraph is good for visualisation, haven't figured out how to use it though
+
+## Data and data_plotting for the temporal method
+> You can find the description for data1.csv in progress log
+> data1_plotting.ipynb is used to plot the relationship of n --> N 
