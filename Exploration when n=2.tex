@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\title{n = 2}
+\author{Linghai Liu}
+\date{August 2020}
+
+\begin{document}
+
+\maketitle
+
+\section{Formulating problem}
+Define two arrays, $\{p_n\}$ and $\{q_n\}$ ($\forall i \in \mathbb{N}$, we have $p_i,q_i \geq 0$ and $p_i + q_i = 1$), which stands for the probability of the two points with initial condition $p_0=1, q_0=0$. \\
+Define parameters $a, b, c$ as probabilities for moving left, stay the same, and moving right. For a, b, c we make sure $a+b+c=1$ and $a,b,c\geq0$\\
+
+We have the following inductions:
+\[p_{n+1}=(a+c)q_n+bp_n\] \[q_{n+1}=(a+c)p_n+bq_n\]
+
+\end{document}
