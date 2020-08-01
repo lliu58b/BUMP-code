@@ -36,4 +36,5 @@ cheers
 
 ## Data and data_plotting for the temporal method
 > You can find the description for data1.csv in progress log
+
 > data1_plotting.ipynb is used to plot the relationship of n --> N 
