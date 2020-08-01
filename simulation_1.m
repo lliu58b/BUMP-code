@@ -1,10 +1,11 @@
 %% The simulation process takes in many inputs. n stands for the number of
-% points on the circle, t is the number of steps, lp is the probability of
-% going left, rp is the probability of going right, sp is the probability
-% of staying in the same position. e is the max error we can tolerate when
-% discussing whether all the probability of all points are fully randomized. 
+% points on the circle, t is the ceiling of the number of steps, lp is the 
+% probability of going left, rp is the probability of going right, sp is 
+% the probability of staying in the same position. e is the max error we 
+% can tolerate when discussing whether all the probability of all points 
+% are fully randomized. 
 
-function N = simulation_1(n, t, lp, rp, sp, e)
+function w = simulation_1(n, t, lp, rp, sp, e)
 
 % Instantiating the matrix we multiply to calculate the probability at each
 % time t. 
@@ -23,10 +24,12 @@ disp(v);
 count = 0;
 while count < t && ~check_equilibrium(v, 1/n, e)
     v = v*M;
+    disp(count);
     disp(v);
     count = count + 1;
 end
 
-% Record the number of steps as output
+% Record the number of steps N as output, as well as other parameters. 
 N = count;
+w = [n, N, lp, rp, sp, e];
 end
