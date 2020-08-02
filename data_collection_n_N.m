@@ -23,6 +23,8 @@ for ii = 1:n
 end 
 
 % Output to .csv file
-csvwrite('data1.csv', collection);
+T = array2table(collection);
+T.Properties.VariableNames(1:6) = {'n', 'N', 'lp', 'rp', 'sp', 'e'};
+writetable(T, 'data1.csv');
 
 end
