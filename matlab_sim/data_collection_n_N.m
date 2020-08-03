@@ -23,8 +23,8 @@ for ii = 1:10:651
 end 
 
 % Output to .csv file
-% T = array2table(collection);
-% T.Properties.VariableNames(1:6) = {'n', 'N', 'lp', 'rp', 'sp', 'e'};
-% writetable(T, 'data3.csv');
+T = array2table(collection);
+T.Properties.VariableNames(1:6) = {'n', 'N', 'lp', 'rp', 'sp', 'e'};
+writetable(T, 'data3.csv');
 
 end
