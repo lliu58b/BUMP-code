@@ -9,9 +9,13 @@ function w = simulation_1(n, t, lp, rp, sp, e)
 
 % Instantiating the matrix we multiply to calculate the probability at each
 % time t. 
-M = diag(sp*ones(1,n)) + diag(rp*ones(1,n-1),1) + diag(lp*ones(1,n-1),-1);
-M(1, end) = lp;
-M(end, 1) = rp;
+if n == 2
+    M = [sp (lp+rp); (lp+rp) sp];
+else
+    M = diag(sp*ones(1,n)) + diag(rp*ones(1,n-1),1) + diag(lp*ones(1,n-1),-1);
+    M(1, end) = lp;
+    M(end, 1) = rp;
+end
 
 % Initializing probability: probability is 1 at the origin initially. 
 v = zeros(1, n);
