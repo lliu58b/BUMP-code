@@ -1,4 +1,5 @@
 import numpy as np
+from .param import *
 import math
 import json
 
