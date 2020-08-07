@@ -5,19 +5,19 @@
 function data_collection_n_N(lp, rp, sp)
 
 % Modify the amount of error we can bear 
-error = 1/20000;
+error = 1/10000;
 
 % Modify the maximum number of steps to take
-t = 500000;
+t = 200000;
 
 % Modify n 
-n = 1000;
+n = 20;
 
 % Initializing the collection of data (a matrix)
 collection = [];
 
 % Loop from 1 to n
-for ii = 1:10:651
+for ii = 1:n
     c = simulation_1(ii, t, lp, rp, sp, error)
     collection = [collection; c];
 end 
@@ -25,6 +25,6 @@ end
 % Output to .csv file
 T = array2table(collection);
 T.Properties.VariableNames(1:6) = {'n', 'N', 'lp', 'rp', 'sp', 'e'};
-writetable(T, 'data3.csv');
+writetable(T, 'data_asymmetrical.csv');
 
 end
