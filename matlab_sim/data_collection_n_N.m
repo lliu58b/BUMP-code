@@ -25,6 +25,6 @@ end
 % Output to .csv file
 T = array2table(collection);
 T.Properties.VariableNames(1:6) = {'n', 'N', 'lp', 'rp', 'sp', 'e'};
-writetable(T, 'data_asymmetrical.csv');
+writetable(T, 'data_conjecture.csv');
 
 end
