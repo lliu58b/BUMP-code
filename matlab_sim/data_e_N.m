@@ -10,7 +10,7 @@ error = 1/500000;
 t = 200000;
 
 % Modify n
-n = 15;
+n = 24;
 
 % Initializing the collection of data (a matrix)
 collection = [];
@@ -25,6 +25,6 @@ end
 % Write the results into a .csv file
 T = array2table(collection);
 T.Properties.VariableNames(1:6) = {'n', 'N', 'lp', 'rp', 'sp', 'e'};
-writetable(T, 'data_e_N_4.csv');
+writetable(T, 'data_e_N_7.csv');
 
 end
