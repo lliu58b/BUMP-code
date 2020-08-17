@@ -47,7 +47,7 @@ def card_sim(n, t):
     
     # Swap cards for t times
     counter = 0
-    while counter < t and check_relative(p_map, p, counter, t) != True:
+    while counter < t and check_relative(p_map, p, counter) != True:
         r = random.randint(0, n-1)
         prob = random.random()
         # Swap one card and the one after it
@@ -66,10 +66,12 @@ def card_sim(n, t):
 # The following function checks whether uniform distribution has been reached.
 # m stands for the dictionary (hashmap), p stands for the list of permutations
 # that are keys in the hashmap
-def check_relative(m, p, counter, t):
+def check_relative(m, p, counter):
     num_permutations = len(p)
     for x in p:
-        if m[list2string(x)] < 0.9 * t / num_permutations or m[list2string(x)] > 1.1 * t / num_permutations:
+        if counter == 0:
+            return False
+        if m[list2string(x)] < 0.95 * counter / num_permutations or m[list2string(x)] > 1.05 * counter / num_permutations:
             return False
     print(counter)
     return True
@@ -89,9 +91,6 @@ def update(m, cards):
 
 
 card_sim(4, 100000)
-while False:    
-    make_map(2)
-    card_sim(4, 1000)
 
 
 
