@@ -15,13 +15,13 @@ def card_sim(n, t, e):
     counter = 0
     while counter < t and check_relative(p_map, p, counter, e) != True:
         r = random.randint(0, n-1)
+        q = random.randint(0, n-1)
         prob = random.random()
         # Swap one card and the one after it
         if prob > 0.5:
-            if r == n-1:
-                cards[r], cards[0] = cards[0], cards[r]
-            else:
-                cards[r], cards[r+1] = cards[r+1], cards[r]
+            while r == q:
+                q = random.randint(0, n-1)
+            cards[r], cards[q] = cards[q], cards[r]
         update(p_map, cards)
         counter += 1
     # print the observations of each simulation for all the buckets
@@ -103,7 +103,7 @@ while error >= 0.01:
 for item in result:
     print("When error is ", item[0], ", the mean steps to fully randomize is ", item[1])
     print(item[2])
-
+'''
 # Create Pandas dataframe for the data we collected
 data = pd.DataFrame(np.array(result), columns=['e', 'avg_steps', 'e^2 * avg_steps'])
 
@@ -111,3 +111,4 @@ data = pd.DataFrame(np.array(result), columns=['e', 'avg_steps', 'e^2 * avg_step
 data.to_csv('epsilon_t1.csv', index=False)
 
 print(data)
+'''
