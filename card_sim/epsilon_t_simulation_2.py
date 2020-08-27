@@ -6,7 +6,7 @@ import numpy as np
 
 # The card simulation function. The input t stands for the number of times 
 # swapping the cards. Error e should fall in the open interval (0,1)
-def card_sim(n, t, e):
+def card_sim(n, pofs, t, e):
     p_map, p = make_map(n)
     # each number in cards stands for a card
     cards = list(range(1, n+1))
@@ -18,7 +18,7 @@ def card_sim(n, t, e):
         q = random.randint(0, n-1)
         prob = random.random()
         # Swap one card and the one after it
-        if prob > 0.5:
+        if prob < pofs:
             while r == q:
                 q = random.randint(0, n-1)
             cards[r], cards[q] = cards[q], cards[r]
@@ -96,9 +96,9 @@ error = 0.1
 while error >= 0.01:
     s = 0
     for j in range(1000):
-        s += card_sim(4, 1000000, error)
+        s += card_sim(4, 0.5, 1000000, error)
     s = s/1000
-    result.append([error, s, (error**2)*s])
+    result.append([n, 0.5, error, s, (error**2)*s])
     error -= 0.01
 for item in result:
     print("When error is ", item[0], ", the mean steps to fully randomize is ", item[1])
