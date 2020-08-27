@@ -17,7 +17,7 @@ def card_sim(n, t, e):
         r = random.randint(0, n-1)
         prob = random.random()
         # Swap one card and the one after it
-        if prob > 0.5:
+        if prob > 0.7:
             if r == n-1:
                 cards[r], cards[0] = cards[0], cards[r]
             else:
@@ -98,16 +98,16 @@ while error >= 0.01:
     for j in range(1000):
         s += card_sim(4, 1000000, error)
     s = s/1000
-    result.append([error, s, (error**2)*s])
+    result.append([4, 0.3, error, s, (error**2)*s])
     error -= 0.01
 for item in result:
     print("When error is ", item[0], ", the mean steps to fully randomize is ", item[1])
     print(item[2])
 
 # Create Pandas dataframe for the data we collected
-data = pd.DataFrame(np.array(result), columns=['e', 'avg_steps', 'e^2 * avg_steps'])
+data = pd.DataFrame(np.array(result), columns=['n', 'p', 'e', 'avg_steps', 'e^2 * avg_steps'])
 
 # Write csv file
-data.to_csv('epsilon_t1.csv', index=False)
+data.to_csv('epsilon_t3.csv', index=False)
 
 print(data)
