@@ -98,7 +98,7 @@ while error >= 0.01:
     for j in range(1000):
         s += card_sim(4, 0.5, 1000000, error)
     s = s/1000
-    result.append([n, 0.5, error, s, (error**2)*s])
+    result.append([4, 0.5, error, s, (error**2)*s])
     error -= 0.01
 for item in result:
     print("When error is ", item[0], ", the mean steps to fully randomize is ", item[1])
