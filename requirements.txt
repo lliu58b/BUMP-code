@@ -25,7 +25,7 @@ joint-state-publisher==1.12.15
 kdl-parser-py==1.13.1
 laser-geometry==1.6.5
 message-filters==1.14.6
-numpy==1.19.1
+numpy==1.22.0
 pyqtgraph==0.11.0
 python-qt-binding==0.4.3
 qt-dotgraph==0.4.1
